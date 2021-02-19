@@ -1,0 +1,42 @@
+
+$card-background-color:     #fff;
+$dark-color:                #000;
+$light-color:             #757575;
+
+// Wrapper
+.card {
+    border-radius: 2px;
+    background-color: $card-background-color;
+    box-shadow: 0 2px 2px 0 rgba($dark-color,.14), 0 3px 1px -2px rgba($dark-color,.2), 0 1px 5px 0 rgba($dark-color,.12);
+    min-width: 85%;
+}
+
+table {
+  width: 100%;
+  margin-top: 15px;
+  th, tr, td {
+    padding: 12px 20px;
+  }
+  th {
+    font-size: 12px;
+    font-weight: 500;
+    color: $light-color;
+  }
+
+  td {
+    font-size: 13px;
+    font-weight: 400;
+    color: $dark-color;
+    border-top: 1px solid rgba($light-color, 0.2);
+    border-collapse: collapse;
+    text-align: center;
+  }
+ 
+
+  tr:not(#header) {
+    transition: 200ms all ease-in-out;
+  }
+  tr:not(#header):hover {
+    background: #eeeeee;
+  }
+}

@@ -1,0 +1,11 @@
+$dark-color: #000;
+.form-control{
+    background-color: #fff;
+    height: 45px;
+    min-width: 220px;
+    border: 1px solid rgba($dark-color, 0.01);
+    box-shadow: 0 2px 2px 0 rgba($dark-color,.14), 0 3px 1px -2px rgba($dark-color,.2), 0 1px 5px 0 rgba($dark-color,.12);
+    transition: all 0.2s ease-in-out;
+    padding: 10px;
+    
+}

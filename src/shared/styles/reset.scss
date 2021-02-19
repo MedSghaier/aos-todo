@@ -1,0 +1,73 @@
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #eee;
+  }
+  
+* {
+	outline: none !important;
+}
+
+*,
+*:before,
+*:after{
+	box-sizing: border-box;
+}
+  
+/*
+-----------------------------------------
+Lists
+-----------------------------------------
+*/
+
+ol,
+ul,
+dl {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+/*
+-----------------------------------------
+Link
+-----------------------------------------
+*/
+
+a{
+	color: inherit;
+	text-decoration: none !important;
+	transition: all 0.2s ease-in-out;
+}
+
+
+
+/*
+-----------------------------------------
+Button
+-----------------------------------------
+*/
+
+button{
+	background-color: transparent;
+	cursor: pointer;
+	border: 0;
+}
+
+
+/*
+-----------------------------------------
+Headings
+-----------------------------------------
+*/
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  line-height: inherit;
+  margin-bottom: 0;
+}

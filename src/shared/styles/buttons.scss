@@ -1,0 +1,18 @@
+
+$dark-color: #000;
+.btn{
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+    background-color: #f48fb1;
+    box-shadow: 0 2px 2px 0 rgba($dark-color,.14), 0 3px 1px -2px rgba($dark-color,.2), 0 1px 5px 0 rgba($dark-color,.12);
+    transition: all 0.2s ease-in-out;
+    &:hover{
+        background-color: #f36c99;
+    }
+}
