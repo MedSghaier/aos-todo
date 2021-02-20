@@ -2,12 +2,17 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Clone Project
+`git clone https://github.com/MedSghaier/aos-todo.git`
+
 ## Available Scripts
 
 In the project directory, you can run:
 
 ### `yarn install`
+
 To install project dependencies
+
 ### `yarn start`
 
 Runs the app in the development mode.\
