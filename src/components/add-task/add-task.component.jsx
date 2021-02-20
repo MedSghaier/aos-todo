@@ -5,14 +5,15 @@ import { v4 as uuidv4 } from "uuid";
 
 import './add-task.styles.scss';
 
-const AddTask = ({ addTask }) => {
+const AddTask = ({ addTask, tasks }) => {
   const [taskName, setTaskName] = useState("");
   const [taskDesc, settaskDesc] = useState("");
 
   const saveHandler = (e) => {
     if(taskName !== ''){
       // Dispatch adding new task with unique ID
-      addTask({ id: uuidv4(), name: taskName, desc: taskDesc });
+      let newTask = { id: uuidv4(), name: taskName, desc: taskDesc };
+      addTask(newTask);
       //Clear Input After save
       setTaskName('');
       settaskDesc('');
@@ -49,8 +50,11 @@ const AddTask = ({ addTask }) => {
   );
 };
 
+const mapStateToProps = state => ({
+  tasks: state.tasks.tasks
+}) 
 const mapDispatchToProps = (dispatch) => ({
   addTask: (task) => dispatch(addTask(task)),
 });
 
-export default connect(null, mapDispatchToProps)(AddTask);
+export default connect(mapStateToProps, mapDispatchToProps)(AddTask);

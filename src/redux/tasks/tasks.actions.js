@@ -6,3 +6,10 @@ export const addTask = (task) => {
         payload: task
     }
 }
+
+export const deleteTask = (id) => {
+    return {
+        type: TasksTypes.DELETE_TASK,
+        payload: id
+    }
+}
