@@ -7,7 +7,9 @@ import { connect } from 'react-redux';
 
 const TaksList = ({ tasks }) => {
   return (
-    <div className="card">
+    <>
+      {/* Only renders Table if there is more than one Task */}
+      {tasks.length > 0 && (<div className="card">
       <table cellSpacing="0">
        <thead>
        <tr id="header">
@@ -28,7 +30,8 @@ const TaksList = ({ tasks }) => {
         ))}
         </tbody>
       </table>
-    </div>
+    </div>)}
+    </>
   );
 };
 

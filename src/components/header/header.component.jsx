@@ -1,10 +1,19 @@
+import { connect } from 'react-redux';
 import { Link } from "react-router-dom";
 
 import { routes } from "../../shared/routes/routes";
+import { logout } from '../../redux/auth/auth.actions';
 // Style
 import "./header.styles.scss";
 
-const Header = () => {
+const Header = ({logout}) => {
+
+  const logoutHandler = () => {
+    // Remove auth state from localStorege;
+    localStorage.removeItem('isAuthenticated')
+    // Dispatch logout action
+    logout();
+  }
   return (
     <header className="header">
       <nav className="header__nav">
@@ -15,10 +24,13 @@ const Header = () => {
             </li>
           ))}
         </ul>
-          <button className="header__nav-link">Logout</button>
+          <button className="header__nav-link" onClick={logoutHandler}>Logout</button>
       </nav>
     </header>
   );
 };
 
-export default Header;
+const mapDispatchToProps = dispatch => ({
+  logout: () => dispatch(logout())
+})
+export default connect(null,mapDispatchToProps)(Header);

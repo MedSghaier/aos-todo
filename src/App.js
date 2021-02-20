@@ -1,34 +1,73 @@
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route , Redirect} from "react-router-dom";
+import { connect } from 'react-redux';
+import React from 'react';
 
-// Pages
-import TasksPage from "./pages/tasks/tasks.page";
-import DetailPage from './pages/detail/detail.page'
-//Components
-import Header from "./components/header/header.component";
-
+import LoginPage from './pages/login/login.page';
+import Wrapper from './Wrapper/Wrapper';
 // Styles
 import './App.scss';
-import Home from "./pages/home/home.page";
 
-function App() {
+function App({isAuthenticated}) {
   return (
     <div className="page-wrap">
       <Router>
-        <Header />
-        <main className="main-content">
           <Switch>
-              <Route path="/login">
-                <h1>about</h1>
-              </Route>
-              <Route path="/tasks" component={TasksPage }></Route>
-              <Route path="/tasks/:id" component={DetailPage }></Route>
-              <Route path="/" exact component={Home}></Route>
-              {/* <Route path="/tasks/:id" component={()=>}></Route> */}
+              {/* Redirect to /app for authenticated users */}
+              <Route exact path="/" render={() => <Redirect to="/app" />} />
+              
+              {/* Login Page */}
+              <PublicRoute path="/login" component={LoginPage} />
+
+              {/* Private Routes */}
+              <PrivateRoute path="/app" component={Wrapper} />
           </Switch>
-        </main>
       </Router>
     </div>
   );
+
+function PrivateRoute({ component, ...rest }) {
+  return (
+    <Route
+      {...rest}
+      render={props =>
+        isAuthenticated ? (
+          React.createElement(component, props)
+        ) : (
+          <Redirect
+            to={{
+              pathname: "/login",
+              state: {
+                from: props.location,
+              },
+            }}
+          />
+        )
+      }
+    />
+  );
 }
 
-export default App;
+function PublicRoute({ component, ...rest }) {
+  return (
+    <Route
+      {...rest}
+      render={props =>
+        isAuthenticated ? (
+          <Redirect
+            to={{
+              pathname: "/",
+            }}
+          />
+        ) : (
+          React.createElement(component, props)
+        )
+      }
+    />
+  );
+}
+}
+
+const mapStateToProps = state => ({
+  isAuthenticated: state.auth.isAuthenticated
+})
+export default connect(mapStateToProps)(App);

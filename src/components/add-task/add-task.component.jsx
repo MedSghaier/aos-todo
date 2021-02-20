@@ -11,10 +11,13 @@ const AddTask = ({ addTask }) => {
 
   const saveHandler = (e) => {
     if(taskName !== ''){
+      // Dispatch adding new task with unique ID
       addTask({ id: uuidv4(), name: taskName, desc: taskDesc });
+      //Clear Input After save
       setTaskName('');
       settaskDesc('');
     } else{
+      // Make sur task name is set
       alert('Please Provide at least a task name')
     }
   };
@@ -40,7 +43,7 @@ const AddTask = ({ addTask }) => {
             settaskDesc(e.target.value);
           }}
         />
-        <button className="btn" onClick={saveHandler}>+</button>
+        <button className="btn btn--rounded" onClick={saveHandler}>+</button>
       </form>
     </>
   );
