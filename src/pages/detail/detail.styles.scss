@@ -1,0 +1,18 @@
+.update-form{
+    display: flex;
+    flex-direction: column;
+    width: 33%;
+    margin: 0 auto;
+    .form-control{
+        margin-bottom: 25px;
+    }
+    textarea{
+        height: 100px
+    }
+    .form-group{
+        margin-bottom: 15px;
+        input[type="checkbox"]{
+            margin-right: 5px;
+        }
+    }
+}

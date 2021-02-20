@@ -12,7 +12,7 @@ const AddTask = ({ addTask, tasks }) => {
   const saveHandler = (e) => {
     if(taskName !== ''){
       // Dispatch adding new task with unique ID
-      let newTask = { id: uuidv4(), name: taskName, desc: taskDesc };
+      let newTask = { id: uuidv4(), name: taskName, desc: taskDesc, isComplete:false };
       addTask(newTask);
       //Clear Input After save
       setTaskName('');

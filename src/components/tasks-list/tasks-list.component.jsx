@@ -20,8 +20,8 @@ const TaksList = ({ tasks, deleteTask }) => {
       <table cellSpacing="0">
        <thead>
        <tr id="header">
-          <th>Quote Date</th>
-          <th>Insured</th>
+          <th>Task</th>
+          <th>Description</th>
           <th>Status</th>
           <th></th>
           <th></th>
@@ -32,9 +32,9 @@ const TaksList = ({ tasks, deleteTask }) => {
           <tr className="dr" key={task.id}>
             <td>{ task.name }</td>
             <td>{ task.desc }</td>
-            <td>{ task.status }</td>
+            <td>{ task.isComplete ? 'Done' : 'Incomplete' }</td>
             <td><button onClick={()=> history.push(`/app/tasks/${task.id}`)}>Edit</button></td>
-            <td><button onClick={()=>deleteHandler(task.id)} style={{color: '#ff0f0f'}}>Detale</button></td>
+            <td><button onClick={()=>deleteHandler(task.id)} style={{color: '#ff0f0f'}}>Delete</button></td>
           </tr>
         ))}
         </tbody>
