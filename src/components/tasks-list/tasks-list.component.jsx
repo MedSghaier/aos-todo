@@ -3,13 +3,16 @@ import "./tasks-list.styles.scss";
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { useHistory } from "react-router-dom";
 
 
 const TaksList = ({ tasks }) => {
+  let history = useHistory();
+
   return (
     <>
       {/* Only renders Table if there is more than one Task */}
-      {tasks.length > 0 && (<div className="card">
+      {tasks.length > 0 ? ((<div className="card">
       <table cellSpacing="0">
        <thead>
        <tr id="header">
@@ -25,12 +28,12 @@ const TaksList = ({ tasks }) => {
             <td>{ task.name }</td>
             <td>{ task.desc }</td>
             <td>{ task.status }</td>
-            <td><Link to={`/tasks/${task.id}`}>Edit</Link></td>
+            <td><button onClick={()=> history.push(`/app/tasks/${task.id}`)}>Edit</button></td>
           </tr>
         ))}
         </tbody>
       </table>
-    </div>)}
+    </div>)) : (<h2>No tasks yet !</h2>)}
     </>
   );
 };

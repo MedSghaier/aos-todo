@@ -13,7 +13,7 @@ function App({isAuthenticated}) {
       <Router>
           <Switch>
               {/* Redirect to /app for authenticated users */}
-              <Route exact path="/" render={() => <Redirect to="/app" />} />
+              <Route exact path="/" render={() => <Redirect to="/app/home" />} />
               
               {/* Login Page */}
               <PublicRoute path="/login" component={LoginPage} />
